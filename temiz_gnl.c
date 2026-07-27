@@ -80,7 +80,7 @@ char *get_next_line(int fd)
         }
         tmp = ft_strchr(b, '\n');
     }
-    if (!str_append_mem(&ret, b, tmp - b  + 1))
+    if (!str_append_mem(&ret, b, tmp - b + 1))
     {
         free(ret);
         return NULL;
