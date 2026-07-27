@@ -33,7 +33,7 @@ size_t ft_strlen(char *s)
 int str_append_mem(char **s1, char *s2, size_t size2)
 {
     size_t size1 = ft_strlen(*s1);
-    char *tmp = malloc(size2 + size1 +1);
+    char *tmp = malloc(size2 + size1 + 1);
     if (!tmp)
         return (0);
     ft_memcpy(tmp, *s1, size1);
