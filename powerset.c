@@ -3,7 +3,7 @@
 
 void	find_subsets(int *nums, int *sub, int count, int sub_size, int pos, int sum, int target)
 {
-	if (sum == target)
+	if (sum == target && sub_size > 0)
 	{
 		int i = 0;
 		while (i < sub_size)
@@ -26,30 +26,17 @@ void	find_subsets(int *nums, int *sub, int count, int sub_size, int pos, int sum
 int	main(int ac, char **av)
 {
 	if (ac < 2)
-		return (1);
+		return (0);
 	int	target = atoi(av[1]);
 	int	count = ac - 2;
-	int	*nums = malloc(sizeof(int) * count);
-	int	*sub = malloc(sizeof(int) * count);
-	
-	if (!nums || !sub)
-	{
-		if (nums)
-			free(nums);
-		if (sub)
-			free(sub);
-		return (0);
-	}
-	
-	int i = 0;
+	int	nums[count + 1];
+	int	sub[count + 1];
+	int	i = 0;
 	while (i < count)
 	{
 		nums[i] = atoi(av[i + 2]);
 		i++;
 	}
-	
 	find_subsets(nums, sub, count, 0, 0, 0, target);
-	free(nums);
-	free(sub);
 	return (0);
 }
