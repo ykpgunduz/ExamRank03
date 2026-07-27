@@ -23,8 +23,10 @@ void	find_subsets(int *nums, int *sub, int count, int sub_size, int pos, int sum
 	}
 }
 
-void	powerset(int ac, char **av)
+int	main(int ac, char **av)
 {
+	if (ac < 2)
+		return (1);
 	int	target = atoi(av[1]);
 	int	count = ac - 2;
 	int	*nums = malloc(sizeof(int) * count);
@@ -36,7 +38,7 @@ void	powerset(int ac, char **av)
 			free(nums);
 		if (sub)
 			free(sub);
-		return;
+		return (0);
 	}
 	
 	int i = 0;
@@ -49,12 +51,5 @@ void	powerset(int ac, char **av)
 	find_subsets(nums, sub, count, 0, 0, 0, target);
 	free(nums);
 	free(sub);
-}
-
-int	main(int ac, char **av)
-{
-	if (ac < 2)
-		return (1);
-	powerset(ac, av);
 	return (0);
 }
